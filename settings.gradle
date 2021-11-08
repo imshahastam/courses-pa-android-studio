@@ -1,0 +1,2 @@
+rootProject.name = "ProgAiymHomeworks"
+include ':app'
