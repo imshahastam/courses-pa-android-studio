@@ -4,165 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/layout">
 
-    <FrameLayout
-        android:id="@+id/frameLayout2"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:hint="color"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/redButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"/>
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn0">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="fill_horizontal">
-
-                <TextView
-                    android:id="@+id/txtView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="HorizontalScrollView"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btn1"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp" />
-
-                <Button
-                    android:id="@+id/btn2"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp" />
-
-                <Button
-                    android:id="@+id/btn3"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp" />
-
-                <Button
-                    android:id="@+id/btn4"
-                    android:layout_width="200dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp" />
-            </LinearLayout>
-        </HorizontalScrollView>
-
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="398dp"
-        android:layout_height="0dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/redButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout2">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.872">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/yellowButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="yellow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/redButton"
+        app:layout_constraintVertical_bias="0.15" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txtView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="80dp"
-                    android:text="ScrollView"
-                    android:textSize="25dp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button One" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button Two" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button Three" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button Four" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button Five" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button Six" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button Seven" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button Eight" />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="60dp"
-                    android:text="Button Nine" />
-            </LinearLayout>
-        </ScrollView>
-
-    </FrameLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/greenButton"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yellowButton"
+        app:layout_constraintVertical_bias="0.149" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
