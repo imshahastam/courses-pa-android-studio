@@ -11,45 +11,36 @@
         android:id="@+id/textView"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:hint="color"
+        android:hint="0"
+        android:textSize="28sp"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/redButton"
+        app:layout_constraintBottom_toTopOf="@id/countButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/redButton"
+        android:id="@+id/countButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="red"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/yellowButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="yellow"
+        android:text="Щелк"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.15" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/greenButton"
+        android:id="@+id/resetButton"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="green"
+        android:text="Сброс"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/yellowButton"
+        app:layout_constraintTop_toBottomOf="@id/countButton"
         app:layout_constraintVertical_bias="0.149" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
