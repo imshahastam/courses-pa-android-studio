@@ -1,46 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/layout">
+    android:id="@+id/layout"
+    android:orientation="vertical"
+    android:weightSum="2">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/textView"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:hint="0"
-        android:textSize="28sp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toTopOf="@id/countButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_weight="0.9"
+        android:id="@+id/inputTxt"
+        android:gravity="right|center"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/countButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Щелк"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.15" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_weight="0.9"
+        android:id="@+id/answerTxt"
+        android:text="answer here"
+        android:gravity="right|center"
+        android:textSize="25sp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/resetButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:text="Сброс"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/countButton"
-        app:layout_constraintVertical_bias="0.149" />
+    <LinearLayout
+        android:id="@+id/firstRowLinLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_gravity="fill_horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cleanAllBtn"
+            android:hint="AC"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bracketOpenBtn"
+            android:hint="("
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bracketCloseBtn"
+            android:hint=")"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/divide"
+            android:hint="/"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/secondRowLinLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_gravity="fill_horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sevenBtn"
+            android:hint="7"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/eightBtn"
+            android:hint="8"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/nineBtn"
+            android:hint="9"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/multiply"
+            android:hint="*"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/thirdRowLinLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_gravity="fill_horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fourBtn"
+            android:hint="4"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fiveBtn"
+            android:hint="5"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sixBtn"
+            android:hint="6"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/plus"
+            android:hint="+"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fourthRowLinLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_gravity="fill_horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/oneBtn"
+            android:hint="1"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/twoBtn"
+            android:hint="2"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/threeBtn"
+            android:hint="3"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/minus"
+            android:hint="-"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fivethRowLinLayout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_gravity="fill_horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dotBtn"
+            android:hint="."
+            android:textSize="24sp"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/zeroBtn"
+            android:hint="0"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/backBtn"
+            android:hint="BACK"
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/equalBtn"
+            android:hint="="
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="80dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
