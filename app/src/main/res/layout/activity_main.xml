@@ -39,29 +39,29 @@
             android:id="@+id/cleanAllBtn"
             android:hint="AC"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bracketOpenBtn"
             android:hint="("
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bracketCloseBtn"
             android:hint=")"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/divide"
             android:hint="/"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
     </LinearLayout>
 
@@ -77,29 +77,29 @@
             android:id="@+id/sevenBtn"
             android:hint="7"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/eightBtn"
             android:hint="8"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nineBtn"
             android:hint="9"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/multiply"
             android:hint="*"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
     </LinearLayout>
 
@@ -115,29 +115,29 @@
             android:id="@+id/fourBtn"
             android:hint="4"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/fiveBtn"
             android:hint="5"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sixBtn"
             android:hint="6"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/plus"
             android:hint="+"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
     </LinearLayout>
 
@@ -153,29 +153,29 @@
             android:id="@+id/oneBtn"
             android:hint="1"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/twoBtn"
             android:hint="2"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/threeBtn"
             android:hint="3"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/minus"
             android:hint="-"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
     </LinearLayout>
 
@@ -192,29 +192,29 @@
             android:hint="."
             android:textSize="24sp"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/zeroBtn"
             android:hint="0"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/backBtn"
             android:hint="BACK"
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/equalBtn"
             android:hint="="
             android:layout_weight="1"
-            android:layout_width="100dp"
-            android:layout_height="80dp"/>
+            style="@style/ButtonStyle"
+            android:background="@drawable/bg_button"/>
 
     </LinearLayout>
 

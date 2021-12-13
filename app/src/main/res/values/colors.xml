@@ -10,4 +10,7 @@
     <color name="red">#FF0000</color>
     <color name="yellow">#FFD500</color>
     <color name="green">#44FF00</color>
+    <color name="orange">#FF5722</color>
+    <color name="limon">#CDDC39</color>
+    <color name="gray">#AFAFAF</color>
 </resources>
