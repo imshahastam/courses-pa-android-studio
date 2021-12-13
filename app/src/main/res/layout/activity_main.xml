@@ -1,222 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/layout"
-    android:orientation="vertical"
-    android:weightSum="2">
+    android:id="@+id/layout">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_weight="0.9"
-        android:id="@+id/inputTxt"
-        android:gravity="right|center"
-        android:textSize="25sp"
+        android:id="@+id/toTxt"
         android:layout_width="match_parent"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp"
+        android:text="Send to:"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/emailEditTxt"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/emailEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:hint="enter email"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_constraintTop_toBottomOf="@id/toTxt"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:layout_weight="0.9"
-        android:id="@+id/answerTxt"
-        android:text="answer here"
-        android:gravity="right|center"
-        android:textSize="25sp"
+        android:id="@+id/subjectTxt"
         android:layout_width="match_parent"
-        android:layout_height="60dp"/>
+        android:layout_height="60dp"
+        android:text="Subject:"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_constraintTop_toBottomOf="@id/emailEditTxt"/>
 
-    <LinearLayout
-        android:id="@+id/firstRowLinLayout"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:weightSum="4"
-        android:orientation="horizontal"
-        android:layout_gravity="fill_horizontal">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/cleanAllBtn"
-            android:hint="AC"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bracketOpenBtn"
-            android:hint="("
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bracketCloseBtn"
-            android:hint=")"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/divide"
-            android:hint="/"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/secondRowLinLayout"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/subjectEditTxt"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:weightSum="4"
-        android:orientation="horizontal"
-        android:layout_gravity="fill_horizontal">
+        android:hint="enter subject"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_constraintTop_toBottomOf="@id/subjectTxt"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/sevenBtn"
-            android:hint="7"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/msgTxt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Message:"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_constraintTop_toBottomOf="@id/subjectEditTxt"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/eightBtn"
-            android:hint="8"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/nineBtn"
-            android:hint="9"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/multiply"
-            android:hint="*"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/thirdRowLinLayout"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/msgEditTxt"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:weightSum="4"
-        android:orientation="horizontal"
-        android:layout_gravity="fill_horizontal">
+        android:hint="enter message"
+        android:lines="10"
+        android:textSize="24sp"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_constraintTop_toBottomOf="@id/msgTxt"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/fourBtn"
-            android:hint="4"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/fiveBtn"
-            android:hint="5"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/sixBtn"
-            android:hint="6"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/plus"
-            android:hint="+"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/fourthRowLinLayout"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn"
+        style="@style/ButtonStyle"
+        android:background="@drawable/bg_button"
+        android:layout_width="200dp"
         android:layout_height="80dp"
-        android:weightSum="4"
-        android:orientation="horizontal"
-        android:layout_gravity="fill_horizontal">
+        android:text="SEND"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/msgEditTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/oneBtn"
-            android:hint="1"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/twoBtn"
-            android:hint="2"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/threeBtn"
-            android:hint="3"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/minus"
-            android:hint="-"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/fivethRowLinLayout"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:weightSum="4"
-        android:orientation="horizontal"
-        android:layout_gravity="fill_horizontal">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/dotBtn"
-            android:hint="."
-            android:textSize="24sp"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/zeroBtn"
-            android:hint="0"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/backBtn"
-            android:hint="BACK"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/equalBtn"
-            android:hint="="
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:background="@drawable/bg_button"/>
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

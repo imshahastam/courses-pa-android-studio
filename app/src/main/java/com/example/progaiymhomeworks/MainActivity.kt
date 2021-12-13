@@ -1,10 +1,12 @@
 package com.example.progaiymhomeworks
 
 import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
 import android.content.ContentProvider
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -34,67 +36,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //numbers
         binding.apply {
-            zeroBtn.setOnClickListener { inputView("0") }
-            oneBtn.setOnClickListener { inputView("1") }
-            twoBtn.setOnClickListener { inputView("2") }
-            threeBtn.setOnClickListener { inputView("3") }
-            fourBtn.setOnClickListener { inputView("4") }
-            fiveBtn.setOnClickListener { inputView("5") }
-            sixBtn.setOnClickListener { inputView("6") }
-            sevenBtn.setOnClickListener { inputView("7") }
-            eightBtn.setOnClickListener { inputView("8") }
-            nineBtn.setOnClickListener { inputView("9") }
-        }
 
-        //operations
-        binding.apply {
-            plus.setOnClickListener { inputView("+") }
-            minus.setOnClickListener { inputView("-") }
-            divide.setOnClickListener { inputView("/") }
-            multiply.setOnClickListener { inputView("*") }
-        }
+            btn.setOnClickListener {
+                val email = emailEditTxt.text.toString()
+                val subject = subjectEditTxt.text.toString()
+                val msg = msgEditTxt.text.toString()
 
-        //other
-        binding.apply {
-            cleanAllBtn.setOnClickListener {
-                inputTxt.text = ""
-                answerTxt.text = ""
-            }
-            bracketOpenBtn.setOnClickListener { inputView("(") }
-            bracketCloseBtn.setOnClickListener { inputView(")") }
-            dotBtn.setOnClickListener { inputView(".") }
+                val emailAdresses = email.split(",".toRegex()).toTypedArray()
 
-            backBtn.setOnClickListener {
-                val inptTxt = inputTxt.text.toString()
-                inputTxt.text = inptTxt.substring(0, inptTxt.length - 1)
-            }
-        }
+                val intent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:")
+                    putExtra(Intent.EXTRA_EMAIL, emailAdresses)
+                    putExtra(Intent.EXTRA_SUBJECT, subject)
+                    putExtra(Intent.EXTRA_TEXT, msg)
+                }
 
-        binding.apply {
-            equalBtn.setOnClickListener{
                 try {
-                    val expression = ExpressionBuilder(inputTxt.text.toString()).build()
-                    val result = expression.evaluate()
-                    val longResult = result.toLong()
-
-                    if (result == longResult.toDouble()) {
-                        answerTxt.text = longResult.toString()
-                    } else {
-                        answerTxt.text = result.toString()
-                    }
-                }catch (e: ArithmeticException) {
-                    answerTxt.text = "На 0 делить нельзя!"
-                } catch (e: Exception) {
-                    answerTxt.text = "Ошибка!"
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(this@MainActivity, "You don't have Email App", Toast.LENGTH_LONG).show()
+                }
             }
         }
+    }
 
 
-    }
-}
-    private fun inputView(text: String) {
-        binding.inputTxt.append(text)
-    }
 }
