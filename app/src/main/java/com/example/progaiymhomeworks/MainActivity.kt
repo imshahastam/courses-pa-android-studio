@@ -36,30 +36,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.apply {
+        supportFragmentManager.beginTransaction()
+            .add(R.id.frg_container, Fragment1())
+            .commit()
 
-            btn.setOnClickListener {
-                val email = emailEditTxt.text.toString()
-                val subject = subjectEditTxt.text.toString()
-                val msg = msgEditTxt.text.toString()
-
-                val emailAdresses = email.split(",".toRegex()).toTypedArray()
-
-                val intent = Intent(Intent.ACTION_SENDTO).apply {
-                    data = Uri.parse("mailto:")
-                    putExtra(Intent.EXTRA_EMAIL, emailAdresses)
-                    putExtra(Intent.EXTRA_SUBJECT, subject)
-                    putExtra(Intent.EXTRA_TEXT, msg)
-                }
-
-                try {
-                    startActivity(intent)
-                } catch (e: ActivityNotFoundException) {
-                    Toast.makeText(this@MainActivity, "You don't have Email App", Toast.LENGTH_LONG).show()
-                }
-            }
-        }
+        supportFragmentManager.beginTransaction()
+            .add(R.id.frg_container2, Fragment2())
+            .commit()
     }
-
 
 }
