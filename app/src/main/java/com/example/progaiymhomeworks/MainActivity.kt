@@ -27,7 +27,7 @@ import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
 
 //Shahzada Stamova
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnButtonsClick {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -43,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.frg_container2, Fragment2())
             .commit()
+    }
+
+    override fun setImageClick(image: Int) {
+        val fragment2 = supportFragmentManager.findFragmentById(R.id.frg_container2) as? Fragment2
+        fragment2?.getImage(image)
     }
 
 }
