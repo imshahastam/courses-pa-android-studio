@@ -3,26 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/green">
+    android:background="@color/brown">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/frg2Txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is Fragment 2 with ImageView"
+        android:text="This is Fragment 2"
         android:textSize="24sp"
         android:textColor="@color/black"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/imageView"/>
+        app:layout_constraintBottom_toTopOf="@id/btn2"/>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/frg2EditText"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:hint="Enter text"
         app:layout_constraintTop_toBottomOf="@id/frg2Txt"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Send text to fragment 1"
+        app:layout_constraintTop_toBottomOf="@id/frg2EditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

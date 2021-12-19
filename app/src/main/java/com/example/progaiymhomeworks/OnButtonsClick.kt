@@ -5,5 +5,6 @@ import android.view.View
 
 interface OnButtonsClick {
 
-    fun setImageClick(image: Int)
+    fun setTextToFrg1(enteredText: String)
+    fun setTextToFrg2(enteredText: String)
 }

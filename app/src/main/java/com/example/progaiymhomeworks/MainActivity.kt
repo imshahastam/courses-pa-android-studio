@@ -45,9 +45,14 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
             .commit()
     }
 
-    override fun setImageClick(image: Int) {
+    override fun setTextToFrg1(enteredText : String) {
+        val fragment1 = supportFragmentManager.findFragmentById(R.id.frg_container) as? Fragment1
+        fragment1?.getTextFromFrg2(enteredText)
+    }
+
+    override fun setTextToFrg2(enteredText: String) {
         val fragment2 = supportFragmentManager.findFragmentById(R.id.frg_container2) as? Fragment2
-        fragment2?.getImage(image)
+        fragment2?.getTextFromFrg1(enteredText)
     }
 
 }
