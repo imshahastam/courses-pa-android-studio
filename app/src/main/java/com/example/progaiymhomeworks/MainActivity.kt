@@ -31,28 +31,27 @@ import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
 
 //Shahzada Stamova
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnItemClicked {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recycler = findViewById<RecyclerView>(R.id.recycler)
-        val layoutManager = LinearLayoutManager(this)
-        val adapter = SimpleAdapter {
-            Toast.makeText(this, "ITEM - $it", Toast.LENGTH_SHORT).show()
-        }
+        supportFragmentManager.beginTransaction()
+            .add(R.id.frg_container, FragmentRecycler())
+            .commit()
 
-        recycler.layoutManager = layoutManager
-        recycler.adapter = adapter
-        recycler.addItemDecoration(DividerItemDecoration(this, RecyclerView.VERTICAL))
-
-        val list = mutableListOf<String>()
-        for (i in 0..20) {
-            list.add("ITEM - $i")
-
-        }
-        adapter.setData(list)
     }
 
+    override fun openItemInfo(text: String) {
+        val fragmentInfo = FragmentItemInfo()
+        val bundle = Bundle()
+        bundle.putString("item", text)
+        fragmentInfo.arguments = bundle
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frg_container, fragmentInfo)
+            .addToBackStack(null)
+            .commit()
+    }
 }
