@@ -21,6 +21,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import com.example.progaiymhomeworks.R.color.red
 import com.example.progaiymhomeworks.databinding.ActivityMainBinding
 import net.objecthunter.exp4j.ExpressionBuilder
@@ -37,22 +38,14 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .add(R.id.frg_container, Fragment1())
+            .add(R.id.frg_container, FragmentRegister())
             .commit()
+    }
 
+    override fun login(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .add(R.id.frg_container2, Fragment2())
+            .replace(R.id.frg_container, FragmentMain())
             .commit()
-    }
-
-    override fun setTextToFrg1(enteredText: String) {
-        val fragment1 = supportFragmentManager.findFragmentById(R.id.frg_container) as? Fragment1
-        fragment1?.getTextFromFrg2(enteredText)
-    }
-
-    override fun setTextToFrg2(enteredText: String) {
-        val fragment2 = supportFragmentManager.findFragmentById(R.id.frg_container2) as? Fragment2
-        fragment2?.getTextFromFrg1(enteredText)
     }
 
 }

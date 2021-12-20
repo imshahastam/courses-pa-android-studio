@@ -2,9 +2,9 @@ package com.example.progaiymhomeworks
 
 import android.graphics.drawable.Drawable
 import android.view.View
+import androidx.fragment.app.Fragment
 
 interface OnButtonsClick {
 
-    fun setTextToFrg1(enteredText: String)
-    fun setTextToFrg2(enteredText: String)
+    fun login(fragment: Fragment)
 }
