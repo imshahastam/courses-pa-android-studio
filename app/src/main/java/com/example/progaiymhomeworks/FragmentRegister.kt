@@ -27,7 +27,7 @@ class FragmentRegister : Fragment(R.layout.fragment_register) {
         btnLogin.setOnClickListener {
 
             if(email.text.toString() == "shaha.stam@gmail.com" && password.text.toString() == "parol01") {
-                listener.login(FragmentMain())
+                listener.login()
             } else if(email.text!!.isEmpty() || password.text!!.isEmpty()) {
                 Toast.makeText(requireContext(), "Введите данные!", Toast.LENGTH_LONG).show()
             } else {

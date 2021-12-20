@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
             .commit()
     }
 
-    override fun login(fragment: Fragment) {
+    override fun login() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frg_container, FragmentMain())
             .commit()

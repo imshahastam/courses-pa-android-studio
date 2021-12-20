@@ -6,5 +6,5 @@ import androidx.fragment.app.Fragment
 
 interface OnButtonsClick {
 
-    fun login(fragment: Fragment)
+    fun login()
 }
