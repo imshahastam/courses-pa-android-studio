@@ -22,30 +22,37 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.progaiymhomeworks.R.color.red
 import com.example.progaiymhomeworks.databinding.ActivityMainBinding
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
 
 //Shahzada Stamova
-class MainActivity : AppCompatActivity(), OnButtonsClick {
-
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.frg_container, FragmentRegister())
-            .commit()
-    }
+        val recycler = findViewById<RecyclerView>(R.id.recycler)
+        val layoutManager = LinearLayoutManager(this)
+        val adapter = SimpleAdapter {
+            Toast.makeText(this, "ITEM - $it", Toast.LENGTH_SHORT).show()
+        }
 
-    override fun login() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.frg_container, FragmentMain())
-            .commit()
+        recycler.layoutManager = layoutManager
+        recycler.adapter = adapter
+        recycler.addItemDecoration(DividerItemDecoration(this, RecyclerView.VERTICAL))
+
+        val list = mutableListOf<String>()
+        for (i in 0..20) {
+            list.add("ITEM - $i")
+
+        }
+        adapter.setData(list)
     }
 
 }
