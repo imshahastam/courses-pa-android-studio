@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbarAbout"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/purple_200"
@@ -17,7 +17,7 @@
         android:id="@+id/txt"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="This is Main Page"
+        android:text="About Page"
         android:textSize="25sp"
         android:textColor="@color/black"
         android:gravity="center"/>
