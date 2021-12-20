@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
             .commit()
     }
 
-    override fun setTextToFrg1(enteredText : String) {
+    override fun setTextToFrg1(enteredText: String) {
         val fragment1 = supportFragmentManager.findFragmentById(R.id.frg_container) as? Fragment1
         fragment1?.getTextFromFrg2(enteredText)
     }

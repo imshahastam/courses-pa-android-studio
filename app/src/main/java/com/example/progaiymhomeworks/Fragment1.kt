@@ -22,7 +22,7 @@ class Fragment1 : Fragment(R.layout.fragment_1) {
         super.onViewCreated(view, savedInstanceState)
 
         val btn1 = view.findViewById<AppCompatButton>(R.id.btn1)
-        textView = view.findViewById<AppCompatTextView>(R.id.frg1Txt)
+        textView = view.findViewById(R.id.frg1Txt)
         val editText = view.findViewById<AppCompatEditText>(R.id.frg1EditText)
 
         btn1.setOnClickListener {
