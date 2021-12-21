@@ -16,7 +16,7 @@ class FragmentAbout : Fragment(R.layout.fragment_about){
         toolbar.setOnMenuItemClickListener {
             when(it.itemId) {
                 R.id.back -> {
-                    requireActivity().supportFragmentManager.beginTransaction()
+                    requireActivity().supportFragmentManager.beginTransaction() // -> onBackPressed()
                         .replace(R.id.frg_container, FragmentMain())
                         .commit()
                 }
