@@ -1,8 +1,10 @@
 package com.example.progaiymhomeworks
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 
@@ -20,6 +22,16 @@ class FragmentItemInfo : Fragment(R.layout.fragment_item_info) {
         super.onViewCreated(view, savedInstanceState)
 
         txt = view.findViewById(R.id.frgInfoTxt)
-        txt.text = arguments?.getString("item")
+
+        val itemText = arguments?.getString("item")
+        txt.text = itemText
+
+        val btn = view.findViewById<AppCompatButton>(R.id.frgInfoBtn)
+
+        btn.setOnClickListener {
+            val intent = Intent("openActivity2")
+            intent.putExtra("itemText", itemText)
+            startActivity(intent)
+        }
     }
 }
