@@ -2,15 +2,23 @@ package com.example.progaiymhomeworks
 
 import android.content.Context
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class FragmentRegister : Fragment(R.layout.fragment_register) {
 
     private lateinit var listener: OnButtonsClick
+    private lateinit var emailInputLayout: TextInputLayout
+    private lateinit var passwordInputLayout: TextInputLayout
+    private lateinit var email: TextInputEditText
+    private lateinit var password: TextInputEditText
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -21,18 +29,52 @@ class FragmentRegister : Fragment(R.layout.fragment_register) {
         super.onViewCreated(view, savedInstanceState)
 
         val btnLogin = view.findViewById<AppCompatButton>(R.id.loginBtn)
-        val email = view.findViewById<AppCompatEditText>(R.id.email)
-        val password = view.findViewById<AppCompatEditText>(R.id.password)
+        email = view.findViewById(R.id.email)
+        password = view.findViewById(R.id.password)
+
+        passwordInputLayout = view.findViewById(R.id.passwordInputLayout)
+        emailInputLayout = view.findViewById(R.id.emailInputLayout)
 
         btnLogin.setOnClickListener {
+            isEmptyCheckEmail()
+            isEmptyCheckPswrd()
 
-            if(email.text.toString() == "shaha.stam@gmail.com" && password.text.toString() == "parol01") {
+            if (correctEmail() && correctPswrd()) {
                 listener.login()
-            } else if(email.text!!.isEmpty() || password.text!!.isEmpty()) {
-                Toast.makeText(requireContext(), "Введите данные!", Toast.LENGTH_LONG).show()
-            } else {
-                Toast.makeText(requireContext(), "Неверный пароль или логин", Toast.LENGTH_LONG).show()
             }
         }
+
+    }
+
+    private fun isEmptyCheckEmail() {
+        val emailText = email.text
+        if (emailText!!.isEmpty()) {
+            emailInputLayout.error = "Введите данные!"
+        }
+    }
+
+    private fun isEmptyCheckPswrd() {
+        val pswrdText = password.text
+        if (pswrdText!!.isEmpty()) {
+            passwordInputLayout.error = "Введите данные!"
+        }
+    }
+
+    private fun correctEmail() : Boolean {
+        val emailText = email.text
+        if (emailText.toString() == "sh.st@gmail.com") {
+            return true
+        } else
+            emailInputLayout.error = "Неверный логин"
+        return false
+    }
+
+    private fun correctPswrd() : Boolean {
+        val pswrdText = password.text
+        if (pswrdText.toString() == "p1") {
+            return true
+        } else
+            passwordInputLayout.error = "Неверный пароль"
+        return false
     }
 }
