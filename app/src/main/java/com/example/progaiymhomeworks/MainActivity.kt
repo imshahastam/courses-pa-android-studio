@@ -31,15 +31,24 @@ import java.lang.Exception
 class MainActivity : AppCompatActivity(), OnButtonsClick {
 
     private lateinit var binding: ActivityMainBinding
+    private val pref get() = Injector.pref
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .add(R.id.frg_container, FragmentRegister())
-            .commit()
+        if (pref.getEmail("EMAIL_KEY").isNullOrEmpty()) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frg_container, FragmentRegister())
+                .addToBackStack(null)
+                .commit()
+        } else {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frg_container, FragmentLogin())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
     override fun login() {

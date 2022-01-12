@@ -1,6 +1,8 @@
 package com.example.progaiymhomeworks
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -15,10 +17,14 @@ import com.google.android.material.textfield.TextInputLayout
 class FragmentRegister : Fragment(R.layout.fragment_register) {
 
     private lateinit var listener: OnButtonsClick
+
     private lateinit var emailInputLayout: TextInputLayout
     private lateinit var passwordInputLayout: TextInputLayout
+
     private lateinit var email: TextInputEditText
     private lateinit var password: TextInputEditText
+
+    private val pref get() = Injector.pref
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -28,20 +34,21 @@ class FragmentRegister : Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val btnLogin = view.findViewById<AppCompatButton>(R.id.loginBtn)
+        val btnSighin = view.findViewById<AppCompatButton>(R.id.sighinBtn)
         email = view.findViewById(R.id.email)
         password = view.findViewById(R.id.password)
 
         passwordInputLayout = view.findViewById(R.id.passwordInputLayout)
         emailInputLayout = view.findViewById(R.id.emailInputLayout)
 
-        btnLogin.setOnClickListener {
+        btnSighin.setOnClickListener {
             isEmptyCheckEmail()
             isEmptyCheckPswrd()
 
-            if (correctEmail() && correctPswrd()) {
-                listener.login()
-            }
+            pref.saveEmail(email.text.toString())
+            pref.savePassword(password.text.toString())
+
+            listener.login()
         }
 
     }
@@ -58,23 +65,5 @@ class FragmentRegister : Fragment(R.layout.fragment_register) {
         if (pswrdText!!.isEmpty()) {
             passwordInputLayout.error = "Введите данные!"
         }
-    }
-
-    private fun correctEmail() : Boolean {
-        val emailText = email.text
-        if (emailText.toString() == "sh.st@gmail.com") {
-            return true
-        } else
-            emailInputLayout.error = "Неверный логин"
-        return false
-    }
-
-    private fun correctPswrd() : Boolean {
-        val pswrdText = password.text
-        if (pswrdText.toString() == "p1") {
-            return true
-        } else
-            passwordInputLayout.error = "Неверный пароль"
-        return false
     }
 }
