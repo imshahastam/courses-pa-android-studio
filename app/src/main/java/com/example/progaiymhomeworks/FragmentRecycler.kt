@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -22,7 +23,7 @@ class FragmentRecycler : Fragment (R.layout.fragment_recycler) {
         super.onViewCreated(view, savedInstanceState)
 
         val recycler = view.findViewById<RecyclerView>(R.id.frg_recycler)
-        val layoutManager = LinearLayoutManager(requireContext())
+        val layoutManager = GridLayoutManager(requireContext(), 2)
         val adapter = SimpleAdapter {
             Toast.makeText(requireContext(), "ITEM - $it", Toast.LENGTH_SHORT).show()
             listener.openItemInfo("ITEM  - $it")

@@ -38,18 +38,7 @@ class SimpleAdapter (
     ) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: String) {
-            val img = itemView.findViewById<AppCompatImageView>(R.id.itemImg)
             val txt = itemView.findViewById<AppCompatTextView>(R.id.itemTxt)
-
-            if (adapterPosition % 2 == 0) {
-                Glide.with(itemView.context)
-                    .load("https://cdn0.iconfinder.com/data/icons/seo-web-4-1/128/Vigor_User-Avatar-Profile-Photo-02-512.png")
-                    .into(img)
-            } else {
-                Glide.with(itemView.context)
-                    .load("https://cdn0.iconfinder.com/data/icons/seo-web-4-1/128/Vigor_User-Avatar-Profile-Photo-01-512.png")
-                    .into(img)
-            }
 
             txt.text = item
             itemView.setOnClickListener {
