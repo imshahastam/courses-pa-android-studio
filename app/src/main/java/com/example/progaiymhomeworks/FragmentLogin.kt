@@ -33,11 +33,21 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
         val prefEmail = pref.getEmail("EMAIL_KEY")
         val prefPswrd = pref.getPassword("PSWRD_KEY")
 
+        logEmail = view.findViewById(R.id.log_email)
+        logPassword = view.findViewById(R.id.log_password)
+
+        logEmailInputLayout = view.findViewById(R.id.log_emailInputLayout)
+        logPasswordInputLayout = view.findViewById(R.id.log_passwordInputLayout)
+
         val btnLogin = view.findViewById<AppCompatButton>(R.id.loginBtn)
 
         btnLogin.setOnClickListener {
             if (prefEmail.isNotEmpty() && prefPswrd.isNotEmpty()) {
-                if (prefEmail == logEmail.text.toString() && prefPswrd == logPassword.text.toString()) {
+
+                isEmptyCheckEmail()
+                isEmptyCheckPswrd()
+
+                if (logEmail.text.toString() == prefEmail && logPassword.text.toString() == prefPswrd) {
                     listener.login()
                 } else {
                     Toast.makeText(requireContext(), "Такого пользователя нет", Toast.LENGTH_SHORT)
@@ -46,6 +56,20 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
             } else {
                 Toast.makeText(requireContext(), "Null", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun isEmptyCheckEmail() {
+        val emailText = logEmail.text
+        if (emailText!!.isEmpty()) {
+            logEmailInputLayout.error = "Введите данные!"
+        }
+    }
+
+    private fun isEmptyCheckPswrd() {
+        val pswrdText = logPassword.text
+        if (pswrdText!!.isEmpty()) {
+            logPasswordInputLayout.error = "Введите данные!"
         }
     }
 }
