@@ -3,6 +3,8 @@ package com.example.progaiymhomeworks
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -22,6 +24,8 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
     private lateinit var logEmail: TextInputEditText
     private lateinit var logPassword: TextInputEditText
 
+    lateinit var btnLogin: AppCompatButton
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         listener = context as OnButtonsClick
@@ -39,7 +43,10 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
         logEmailInputLayout = view.findViewById(R.id.log_emailInputLayout)
         logPasswordInputLayout = view.findViewById(R.id.log_passwordInputLayout)
 
-        val btnLogin = view.findViewById<AppCompatButton>(R.id.loginBtn)
+        btnLogin = view.findViewById(R.id.loginBtn)
+
+        logEmail.addTextChangedListener(logTextWatcher)
+        logPassword.addTextChangedListener(logTextWatcher)
 
         btnLogin.setOnClickListener {
             if (prefEmail.isNotEmpty() && prefPswrd.isNotEmpty()) {
@@ -56,6 +63,21 @@ class FragmentLogin : Fragment(R.layout.fragment_login) {
             } else {
                 Toast.makeText(requireContext(), "Null", Toast.LENGTH_SHORT).show()
             }
+        }
+
+    }
+
+    private val logTextWatcher = object : TextWatcher {
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+        }
+
+        override fun afterTextChanged(s: Editable?) {
+            btnLogin.isEnabled = logEmail.text.toString().isNotEmpty() && logPassword.text.toString().isNotEmpty()
         }
     }
 
