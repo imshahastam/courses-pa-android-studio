@@ -1,20 +1,25 @@
 package com.example.progaiymhomeworks
 
 import android.app.Application
+import androidx.room.Room
+import com.example.progaiymhomeworks.database.AppDatabase
 
-class App: Application() {
+class App : Application() {
 
-    lateinit var pref: Preferences
+    lateinit var database: AppDatabase
 
     override fun onCreate() {
         super.onCreate()
-        _instance = this
-        pref = PreferencesImpl(this)
+        mInstance = this
+        database = Room.databaseBuilder(this, AppDatabase::class.java, "database")
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .build()
     }
 
     companion object {
-        private var _instance: App? = null
-        val instance get() = _instance!!
+        private var mInstance: App? = null
+        val instance get() = mInstance!!
     }
 }
 

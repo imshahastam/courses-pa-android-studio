@@ -12,7 +12,6 @@
         android:name=".App">
         <activity android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="sensor"
             android:configChanges="screenLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
