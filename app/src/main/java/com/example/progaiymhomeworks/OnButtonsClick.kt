@@ -6,5 +6,6 @@ import androidx.fragment.app.Fragment
 
 interface OnButtonsClick {
 
-    fun openFragment()
+    fun openFragmentMain()
+    fun openFragmentEdit()
 }

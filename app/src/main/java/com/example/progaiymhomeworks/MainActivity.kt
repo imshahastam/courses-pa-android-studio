@@ -44,9 +44,15 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
 
     }
 
-    override fun openFragment() {
+    override fun openFragmentMain() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frg_container, FragmentMain())
+            .commit()
+    }
+
+    override fun openFragmentEdit() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frg_container, FragmentEdit())
             .commit()
     }
 

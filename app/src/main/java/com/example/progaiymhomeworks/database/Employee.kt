@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class Employee(
     @PrimaryKey(autoGenerate = false)
     val id: Long?,
-    val name: String,
-    val company: String,
-    val salary: Int
+    var name: String,
+    var company: String,
+    var salary: Int
 )

@@ -37,7 +37,7 @@ class FragmentEmployee : Fragment (R.layout.fragment_employee) {
             )
             dbInstance.employeeDao().insert(e)
 
-            listener.openFragment()
+            listener.openFragmentMain()
         }
     }
 }

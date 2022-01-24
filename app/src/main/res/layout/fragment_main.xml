@@ -7,11 +7,29 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/dataTxt"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
         android:text="Data"
         android:textSize="25sp"
         android:textColor="@color/black"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editBtn"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:hint="EDIT"
+        app:layout_constraintTop_toBottomOf="@id/dataTxt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/deleteBtn"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:hint="DELETE"
+        app:layout_constraintTop_toBottomOf="@id/editBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
