@@ -5,8 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Employee(
-    @PrimaryKey(autoGenerate = false)
-    val id: Long?,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long? = null,
     var name: String,
     var company: String,
     var salary: Int

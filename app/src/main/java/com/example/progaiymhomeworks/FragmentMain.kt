@@ -6,6 +6,9 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.progaiymhomeworks.database.Employee
 
 //main экран, где данные должны отображаться
 class FragmentMain : Fragment(R.layout.fragment_main) {
@@ -21,22 +24,22 @@ class FragmentMain : Fragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dataTxt = view.findViewById<AppCompatTextView>(R.id.dataTxt)
+        val addBtn = view.findViewById<AppCompatButton>(R.id.addBtn)
 
-        val editBtn = view.findViewById<AppCompatButton>(R.id.editBtn)
-        val deleteBtn = view.findViewById<AppCompatButton>(R.id.deleteBtn)
-
-        val e = dbInstance.employeeDao().getById(1L)
-        dataTxt.text = e.toString()
-
-        editBtn.setOnClickListener {
-            listener.openFragmentEdit()
+        val adapter = ContactsAdapter {item: Long, pos: Boolean ->
+                listener.openItem(item)
         }
 
-        //он в датабейзе удаляет данные, а на экране не отображает((
-        deleteBtn.setOnClickListener {
-            dbInstance.employeeDao().delete(e)
-            dataTxt.text = e.toString()
+        val eList = dbInstance.employeeDao().getAll()
+        adapter.setData(eList)
+
+        val recycler = view.findViewById<RecyclerView>(R.id.recycler)
+        recycler.adapter = adapter
+
+        recycler.layoutManager = LinearLayoutManager(requireContext())
+
+        addBtn.setOnClickListener {
+            listener.openFragmentEmployee()
         }
     }
 }

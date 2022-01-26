@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
         setContentView(binding.root)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frg_container, FragmentEmployee())
+            .replace(R.id.frg_container, FragmentMain())
             .commit()
 
     }
@@ -50,9 +50,30 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
             .commit()
     }
 
+    override fun openFragmentEmployee() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frg_container, FragmentEmployee())
+            .commit()
+    }
+
     override fun openFragmentEdit() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frg_container, FragmentEdit())
+            .commit()
+    }
+
+    override fun openItem(id: Long?) {
+
+        val fragment = FragmentItemInfo()
+        val bundle = Bundle()
+        if (id != null) {
+            bundle.putLong("id", id)
+        }
+
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frg_container, fragment)
+            .addToBackStack(null)
             .commit()
     }
 

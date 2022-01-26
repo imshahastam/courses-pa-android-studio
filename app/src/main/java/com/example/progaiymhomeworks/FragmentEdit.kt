@@ -6,7 +6,6 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
-import com.example.progaiymhomeworks.database.Employee
 
 class FragmentEdit : Fragment(R.layout.fragment_edit) {
 
@@ -39,7 +38,7 @@ class FragmentEdit : Fragment(R.layout.fragment_edit) {
             e.salary = editSalary.text.toString().toInt()
             dbInstance.employeeDao().update(e)
 
-            listener.openFragmentMain()
+            //listener.openFragmentMain()
         }
 
     }

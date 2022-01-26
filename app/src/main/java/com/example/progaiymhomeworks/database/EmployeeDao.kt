@@ -9,7 +9,7 @@ interface EmployeeDao {
     fun getAll(): List<Employee>
 
     @Query("SELECT * FROM employee WHERE id = :id")
-    fun getById(id: Long): Employee
+    fun getById(id: Long?): Employee
 
     @Insert
     fun insert(employee: Employee)

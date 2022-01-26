@@ -30,7 +30,6 @@ class FragmentEmployee : Fragment (R.layout.fragment_employee) {
 
         btnSave.setOnClickListener {
             val e = Employee (
-                id = 1L,
                 name = name.text.toString(),
                 company = company.text.toString(),
                 salary = salary.text.toString().toInt()

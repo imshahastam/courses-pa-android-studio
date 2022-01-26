@@ -4,32 +4,18 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/dataTxt"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:text="Data"
-        android:textSize="25sp"
-        android:textColor="@color/black"
-        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/editBtn"
+        android:id="@+id/addBtn"
+        android:text="+"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:hint="EDIT"
-        app:layout_constraintTop_toBottomOf="@id/dataTxt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/deleteBtn"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:hint="DELETE"
-        app:layout_constraintTop_toBottomOf="@id/editBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintTop_toBottomOf="@id/recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

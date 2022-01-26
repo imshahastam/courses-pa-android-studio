@@ -8,4 +8,6 @@ interface OnButtonsClick {
 
     fun openFragmentMain()
     fun openFragmentEdit()
+    fun openFragmentEmployee()
+    fun openItem(id: Long?)
 }
