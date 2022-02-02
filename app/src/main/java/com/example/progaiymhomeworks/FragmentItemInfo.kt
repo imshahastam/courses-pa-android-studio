@@ -2,7 +2,9 @@ package com.example.progaiymhomeworks
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.Fragment
 
@@ -29,6 +31,11 @@ class FragmentItemInfo : Fragment (R.layout.fragment_item_info) {
         nameInfo.text = e.name
         salaryInfo.text = e.salary.toString()
         companyInfo.text = e.company
+
+        val editBtn = view.findViewById<AppCompatButton>(R.id.editBtn)
+        editBtn.setOnClickListener {
+            listener.openFragmentEdit(id)
+        }
 
     }
 }

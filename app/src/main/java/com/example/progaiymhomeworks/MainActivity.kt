@@ -23,6 +23,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.progaiymhomeworks.R.color.red
+import com.example.progaiymhomeworks.database.Employee
 import com.example.progaiymhomeworks.databinding.ActivityMainBinding
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
@@ -45,8 +46,10 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
     }
 
     override fun openFragmentMain() {
+        val fragment = FragmentMain()
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frg_container, FragmentMain())
+            .replace(R.id.frg_container, fragment)
+            .addToBackStack(null)
             .commit()
     }
 
@@ -56,9 +59,17 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
             .commit()
     }
 
-    override fun openFragmentEdit() {
+    override fun openFragmentEdit(id: Long?) {
+
+        val fragment = FragmentEdit()
+        val bundle = Bundle()
+        if (id != null) {
+            bundle.putLong("id", id)
+        }
+
+        fragment.arguments = bundle
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frg_container, FragmentEdit())
+            .replace(R.id.frg_container, fragment)
             .commit()
     }
 

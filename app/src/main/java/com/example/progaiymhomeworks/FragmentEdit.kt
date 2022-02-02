@@ -2,6 +2,7 @@ package com.example.progaiymhomeworks
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
@@ -26,10 +27,10 @@ class FragmentEdit : Fragment(R.layout.fragment_edit) {
 
         val btnSaveEdit = view.findViewById<AppCompatButton>(R.id.saveBtnEdit)
 
-        val e = dbInstance.employeeDao().getById(1L)
-        //editName.setText(e.name)
-        //editCompany.setText(e.company)
-        //editSalary.setText(e.salary)
+        val id = arguments?.getLong("id")
+        val e = dbInstance.employeeDao().getById(id)
+
+        Log.e("TAG", "Edit id = $id, e.name = ${e.name}")
 
         btnSaveEdit.setOnClickListener {
 
@@ -38,7 +39,8 @@ class FragmentEdit : Fragment(R.layout.fragment_edit) {
             e.salary = editSalary.text.toString().toInt()
             dbInstance.employeeDao().update(e)
 
-            //listener.openFragmentMain()
+            listener.openFragmentMain()
+            Log.e("TAG", "Edit id 1 = $id, e.name = ${e.name}")
         }
 
     }
