@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ProgAiymHomeworks</string>
+    <string name="alert_dialog_title">Are you sure?</string>
 </resources>
