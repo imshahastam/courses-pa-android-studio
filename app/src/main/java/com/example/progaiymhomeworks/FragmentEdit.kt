@@ -7,6 +7,9 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.fragment.app.Fragment
+import com.example.progaiymhomeworks.database.Employee
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class FragmentEdit : Fragment(R.layout.fragment_edit) {
 
@@ -27,20 +30,33 @@ class FragmentEdit : Fragment(R.layout.fragment_edit) {
 
         val btnSaveEdit = view.findViewById<AppCompatButton>(R.id.saveBtnEdit)
 
-        val id = arguments?.getLong("id")
-        val e = dbInstance.employeeDao().getById(id)
 
-        Log.e("TAG", "Edit id = $id, e.name = ${e.name}")
+
+        val id = arguments?.getLong("id")
 
         btnSaveEdit.setOnClickListener {
-
-            e.name = editName.text.toString()
-            e.company = editCompany.text.toString()
-            e.salary = editSalary.text.toString().toInt()
-            dbInstance.employeeDao().update(e)
-
-            listener.openFragmentMain()
-            Log.e("TAG", "Edit id 1 = $id, e.name = ${e.name}")
+            val e = dbInstance.employeeDao().getById(id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .map {
+                    it.name = editName.text.toString()
+                    it.company = editCompany.text.toString()
+                    it.salary = editSalary.text.toString().toInt()
+                    it
+                }
+                .observeOn(Schedulers.io())
+                .flatMapCompletable {
+                    dbInstance.employeeDao().update(it)
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnComplete {
+                    Log.e("TAG", "fragmentEdit doOnSuccess ${Thread.currentThread().name}")
+                    requireActivity().onBackPressed()
+                }
+                .doOnError {
+                    Log.e("TAG", "fragmentEdit doOnError ${Thread.currentThread().name}")
+                }
+                .subscribe()
         }
 
     }

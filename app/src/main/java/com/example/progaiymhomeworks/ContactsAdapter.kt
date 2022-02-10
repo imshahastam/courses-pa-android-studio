@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.progaiymhomeworks.database.Employee
+import io.reactivex.Observable
 
 class ContactsAdapter(private val click: (item: Long, pos: Boolean) -> Unit) : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
-    private var list = listOf<Employee>()
+
+    private var list: List<Employee> = listOf()
 
     fun setData(list: List<Employee>) {
         this.list = list
@@ -47,3 +49,4 @@ class ContactsAdapter(private val click: (item: Long, pos: Boolean) -> Unit) : R
         }
     }
 }
+

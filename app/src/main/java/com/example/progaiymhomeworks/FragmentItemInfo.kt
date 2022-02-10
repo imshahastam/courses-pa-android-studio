@@ -13,6 +13,8 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.example.progaiymhomeworks.database.Employee
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class FragmentItemInfo : Fragment (R.layout.fragment_item_info) {
 
@@ -33,11 +35,19 @@ class FragmentItemInfo : Fragment (R.layout.fragment_item_info) {
         val salaryInfo = view.findViewById<AppCompatTextView>(R.id.salaryInfo)
 
         val id = arguments?.getLong("id")
-        e = dbInstance.employeeDao().getById(id)
-
-        nameInfo.text = e.name
-        salaryInfo.text = e.salary.toString()
-        companyInfo.text = e.company
+        dbInstance.employeeDao().getById(id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .map{
+                e = it
+                nameInfo.text = it.name
+                salaryInfo.text = it.salary.toString()
+                companyInfo.text = it.company
+            }
+            .doOnSuccess {
+                Log.e("TAG", "fragmentItemInfo doOnSuccess getById ${Thread.currentThread().name}")
+            }
+            .subscribe()
 
         val editBtn = view.findViewById<AppCompatButton>(R.id.editBtn)
         editBtn.setOnClickListener {
@@ -61,6 +71,15 @@ class FragmentItemInfo : Fragment (R.layout.fragment_item_info) {
             when (which) {
                 DialogInterface.BUTTON_POSITIVE -> {
                     dbInstance.employeeDao().delete(e)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .doOnComplete {
+                            Log.e("TAG", "fragmentItemInfo doOnComplete ${Thread.currentThread().name}")
+                        }
+                        .doOnError {
+                            Log.e("TAG", "fragmentItemInfo doOnError ${Thread.currentThread().name}")
+                        }
+                        .subscribe()
                 }
                 DialogInterface.BUTTON_NEGATIVE -> showToast("Don't delete")
             }
