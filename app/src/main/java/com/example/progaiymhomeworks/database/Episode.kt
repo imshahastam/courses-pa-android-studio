@@ -4,10 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Employee(
+data class Episode(
     @PrimaryKey(autoGenerate = true)
     val id: Long? = null,
-    var name: String,
-    var company: String,
-    var salary: Int
+    var title: String,
+    val season: Int,
+    val episodeN: Int,
+    val air_date: String?,
+    val series: String?
 )

@@ -5,14 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.progaiymhomeworks.database.Employee
-import io.reactivex.Observable
+import com.example.progaiymhomeworks.database.Episode
 
-class ContactsAdapter(private val click: (item: Long, pos: Boolean) -> Unit) : RecyclerView.Adapter<ContactsAdapter.ViewHolder>() {
+class EpisodesAdapter(private val click: (item: Long, pos: Boolean) -> Unit) : RecyclerView.Adapter<EpisodesAdapter.ViewHolder>() {
 
-    private var list: List<Employee> = listOf()
+    private var list: List<Episode> = listOf()
 
-    fun setData(list: List<Employee>) {
+    fun setData(list: List<Episode>) {
         this.list = list
         notifyDataSetChanged()
     }
@@ -37,16 +36,15 @@ class ContactsAdapter(private val click: (item: Long, pos: Boolean) -> Unit) : R
         itemView: View, private val click: (item: Long, pos: Boolean) -> Unit
     ) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(employee: Employee) {
+        fun bind(episode: Episode) {
 
             val data = itemView.findViewById<AppCompatTextView>(R.id.itemData)
 
-            data.text = employee.name
+            data.text = episode.title
 
             itemView.setOnClickListener {
-                click.invoke(employee.id!!, false)
+                click.invoke(episode.id!!, false)
             }
         }
     }
 }
-

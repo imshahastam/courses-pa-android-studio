@@ -3,9 +3,9 @@ package com.example.progaiymhomeworks.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
-@Database(entities = [Employee::class], version = 2)
+@Database(entities = [Episode::class], version = 3)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun employeeDao(): EmployeeDao
+    abstract fun episodesDao(): EpisodesDao
 
 }
