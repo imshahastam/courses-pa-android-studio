@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProgAiymHomeworks"
         android:name=".App">
-        <activity android:name=".MainActivity"
+        <activity android:name=".ui.main.MainActivity"
             android:exported="true"
             android:configChanges="screenLayout">
             <intent-filter>

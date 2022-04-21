@@ -4,7 +4,8 @@ import android.app.Application
 import android.util.Log
 import androidx.room.Room
 import androidx.viewbinding.BuildConfig
-import com.example.progaiymhomeworks.database.AppDatabase
+import com.example.progaiymhomeworks.data.network.BreakingBadApi
+import com.example.progaiymhomeworks.data.storage.AppDatabase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

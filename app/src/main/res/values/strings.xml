@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">ProgAiymHomeworks</string>
     <string name="alert_dialog_title">Are you sure?</string>
+    <string name="no_internet">NO INTERNET</string>
+    <string name="error_unknown">UNKNOWN ERROR</string>
 </resources>

@@ -1,12 +1,12 @@
-package com.example.progaiymhomeworks.database
+package com.example.progaiymhomeworks.data.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class Episode(
+data class EpisodeEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Long? = null,
+    val id: Long,
     var title: String,
     val season: Int,
     val episodeN: Int,
