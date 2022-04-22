@@ -1,5 +1,6 @@
 package com.example.progaiymhomeworks.data.repo
 
+import com.example.progaiymhomeworks.data.EpisodeDto
 import com.example.progaiymhomeworks.data.ResponseDto
 import com.example.progaiymhomeworks.data.models.EpisodeEntity
 import com.example.progaiymhomeworks.data.network.BreakingBadApi
@@ -16,7 +17,7 @@ class BreakingBadRepo (
     private val episodesDao: EpisodesDao
     ) {
 
-    fun getAllEpisodes(): Observable<ResponseDto> {
+    fun getAllEpisodes(): Observable<List<EpisodeDto>> {
         return breakingBadApi.getAllEpisodes()
             .subscribeOn(Schedulers.io())
     }

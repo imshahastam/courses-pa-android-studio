@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity(), OnButtonsClick {
             openFragment(FragmentMain(), false)
         }
 
-        supportFragmentManager.beginTransaction()
+        /*supportFragmentManager.beginTransaction()
             .replace(R.id.frg_container, FragmentMain())
-            .commit()
+            .commit()*/
     }
 
     override fun openFragment(frg: Fragment, addToBackStack: Boolean?) {

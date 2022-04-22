@@ -1,9 +1,5 @@
 package com.example.progaiymhomeworks.data
 
-data class ResponseDto(
-    val results: List<EpisodeDto>
-)
-
 data class EpisodeDto(
     val id: Long,
     val title: String,

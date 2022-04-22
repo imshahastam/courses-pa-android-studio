@@ -15,7 +15,7 @@ class GetEpisodesUseCase(
         return repo.getAllEpisodes()
             .map {
                 val listEp = mutableListOf<EpisodeEntity>()
-                it.results.forEach {
+                it.forEach {
                     listEp.add(it.toEpisodeEntity())
                 }
                 listEp.toList()
